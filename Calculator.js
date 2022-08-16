@@ -1,5 +1,6 @@
 var text=document.querySelector(".result");
 var one=document.querySelector("#one");
+const number_containers = document.querySelector(".num").childNodes;
 
 String.prototype.replaceAt = function(index, replacement) {
     if (index >= this.length) {
@@ -295,4 +296,17 @@ onkeydown = (event)=>{
             break;
     }
 }
+
+number_containers.forEach(function(element){
+    if(element.nodeType === 1){
+        element.addEventListener("click",function(){
+            if(element.innerText === '.'){
+                text.innerHTML = text.innerHTML + '.';
+                return;
+            }
+            PushNumber(parseInt(element.textContent))
+        });
+    }
+});
+
 
