@@ -8,9 +8,16 @@ String.prototype.replaceAt = function(index, replacement) {
  
     return this.substring(0, index) + replacement + this.substring(index + 1);
 }
-function PushNumber(number) {
+
+function PushNumber(number){
     if(text.textContent[0] === '-'){
-        if(text.textContent.length < 11){
+        if(text.textContent.length < 11 && (text.textContent.indexOf(',') === text.textContent.lastIndexOf(',')) && text.textContent.includes('.') === true && text.textContent.includes(',') === true){
+            text.innerHTML = text.innerHTML + number; 
+        }
+        else if(text.textContent.length < 12 && (text.textContent.indexOf(',') != text.textContent.lastIndexOf(',')) && text.textContent.includes('.') === true && text.textContent.includes(',') === true){
+            text.innerHTML = text.innerHTML + number;
+        }
+        else if(text.textContent.length < 11 && text.textContent.includes('.') === false){
             if(text.innerHTML === "0"){
                 text.innerHTML = number;
             }else{
@@ -57,9 +64,18 @@ function PushNumber(number) {
                 text.innerHTML=text.innerHTML + number;
             }
         }
+        else if(text.textContent.length < 10 && text.textContent.includes(',') === false){
+            text.innerHTML = text.innerHTML + number;
+        }
     }
     else{
-        if(text.textContent.length < 10){
+        if(text.textContent.length < 10 && (text.textContent.indexOf(',') === text.textContent.lastIndexOf(',')) && text.textContent.includes('.') === true && text.textContent.includes(',') === true){
+            text.innerHTML = text.innerHTML + number; 
+        }
+        else if(text.textContent.length < 11 && (text.textContent.indexOf(',') != text.textContent.lastIndexOf(',')) && text.textContent.includes('.') === true && text.textContent.includes(',') === true){
+            text.innerHTML = text.innerHTML + number;
+        }
+        else if(text.textContent.length < 10 && text.textContent.includes('.') === false){
             if(text.innerHTML === "0"){
                 text.innerHTML = number;
             }
@@ -107,13 +123,39 @@ function PushNumber(number) {
                 text.innerHTML=text.innerHTML + number;
             }
         }
+        else if(text.textContent.length < 9 && text.textContent.includes(',') === false){
+            text.innerHTML = text.innerHTML + number;
+        }
     }
 }
+
+function PushDot() {
+    if(text.textContent.includes('.') === false){
+        text.innerHTML = text.innerHTML + '.';
+        return;
+    }
+}
+
 function ClearAll(){
     text.innerHTML = '0';
 }
+
 function ClearLast(){
+    if(text.textContent.includes('.')){
+        var i = 0;
+        var j = text.textContent.length -1;
+        var temp = '';
+        for(i;i < j;i++){
+            temp = temp + text.textContent[i];
+        }
+        text.innerHTML = temp;
+        return;
+    }
     if(text.textContent.length === 1){
+        text.innerHTML = '0';
+        return;
+    }
+    else if(text.textContent.length === 2 && text.textContent[0] === '-'){
         text.innerHTML = '0';
         return;
     }
@@ -123,7 +165,35 @@ function ClearLast(){
     for(i;i<(m-1);i++){
         temp = temp + text.textContent[i];
     }
-    text.innerHTML=temp;
+    text.innerHTML = temp;
+    i = 0;
+    m = text.textContent.length;
+    for(i;i<(m-1);i++){
+        if(text.textContent[i] === ','){
+            var a = text.textContent[i];
+            text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+            text.textContent = text.textContent.replaceAt(i-1,a);
+            if(i === 1){
+                temp = ""
+                var j = 1;
+                var n = text.textContent.length;
+                for(j;j<n;j++){
+                    temp = temp + text.textContent[j];
+                }
+                text.innerHTML = temp;
+            }
+            else if(text.textContent[0] === '-' && i === 2){
+                temp = ""
+                var j = 2;
+                var n = text.textContent.length;
+                for(j;j<n;j++){
+                    temp = temp + text.textContent[j];
+                }
+                text.innerHTML = '-' + temp;
+            }
+        }
+    }
+
     if(text.textContent[text.textContent.length - 1] === ','){
         m = text.textContent.length
         temp = "";
@@ -134,6 +204,7 @@ function ClearLast(){
         text.innerHTML=temp;
     }
 }
+
 function Invert(){
     if(text.innerHTML === '0'){
         return;
@@ -207,14 +278,17 @@ onkeydown = (event)=>{
         case 65:
             ClearAll();
             break;
-        case 67:
+        case 8:
             ClearLast();
             break;
         case 73:
             Invert();
             break;
-        case 102:
-            PushNumber(6);
+        case 190:
+            PushDot();
+            break;
+        case 110:
+            PushDot();
             break;
     
         default:
