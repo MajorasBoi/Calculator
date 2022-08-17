@@ -17,7 +17,142 @@ String.prototype.replaceAt = function(index, replacement) {
     return this.substring(0, index) + replacement + this.substring(index + 1);
 }
 
+//Funciones Para Logica
 function Delay(){text.innerHTML = '0';};
+
+function StringTreatment(){
+    //Para cuando el numero es positivo, tiene coma y es mayor que 1000
+    if(text.textContent[0] != '-' && text.textContent.includes('.') && text.textContent.indexOf('.') >= 4){
+        var j = text.textContent.indexOf('.');
+        if(j >= 4 && j <= 6){
+            var i = text.textContent.length;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-3;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            text.textContent = text.textContent.replaceAt(j-3,',');
+        }
+        else if(j === 7){
+            var i = text.textContent.length;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-3;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            i = text.textContent.length;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-6;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            text.textContent = text.textContent.replaceAt(j-2,',');
+            text.textContent = text.textContent.replaceAt(j-6,',');
+        }
+    }
+
+    //Para cuando el numero es negativo, tiene coma y es mayor que 1000
+    else if(text.textContent.includes('.') && text.textContent.indexOf('.') >= 5){
+        var j = text.textContent.indexOf('.');
+        if(j >= 5 && j <= 7){
+            var i = text.textContent.length;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-3;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            text.textContent = text.textContent.replaceAt(j-3,',');
+        }
+        else if(j === 8){
+            var i = text.textContent.length;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-3;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            i = text.textContent.length;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-6;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            text.textContent = text.textContent.replaceAt(j-2,',');
+            text.textContent = text.textContent.replaceAt(j-6,',');
+        }
+    }
+
+    //Para cuando el numero es negativo y no tiene coma
+    else if(text.textContent[0] === '-' && text.textContent.includes('.') === false ){
+        var j = text.textContent.length;
+        if(j >= 5 && j <= 7){
+            var i = j;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-3;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            text.textContent = text.textContent.replaceAt(j-3,',');
+        }
+        else if(j >= 8 && j <= 9){
+            var i = j;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-3;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            i = text.textContent.length;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-6;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            text.textContent = text.textContent.replaceAt(j - 2,',');
+            text.textContent = text.textContent.replaceAt(j - 6,',');
+        }
+    }
+
+    //Para cuando el numero no tiene coma
+    else if(text.textContent.includes('.') === false){
+        var j = text.textContent.length;
+        if(j >= 4 && j <= 6){
+            var i = j;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-3;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            text.textContent = text.textContent.replaceAt(j-3,',');
+        }
+        else if(j >= 7 && j <= 8){
+            var i = j;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-3;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            i = text.textContent.length;
+            text.innerHTML = text.innerHTML + 0;
+            for(i;i > j-6;i--){
+                var temp2 = text.textContent[i];
+                text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
+                text.textContent = text.textContent.replaceAt(i-1,temp2);
+            }
+            text.textContent = text.textContent.replaceAt(j - 2,',');
+            text.textContent = text.textContent.replaceAt(j - 6,',');
+        }
+    }
+}
 
 function PushNumber(number){
     if(o){
@@ -145,6 +280,12 @@ function PushNumber(number){
     }
 }
 
+function AdjustResult(){
+    
+}
+
+
+//Botones de Operaciones
 function PushDot() {
     if(text.textContent.includes('.') === false){
         text.innerHTML = text.innerHTML + '.';
@@ -154,6 +295,9 @@ function PushDot() {
 
 function ClearAll(){
     text.innerHTML = '0';
+    num1 = 0;
+    op = 0;
+    o = 0;
 }
 
 function ClearLast(){
@@ -238,7 +382,8 @@ function Invert(){
 }
 
 function Add(){
-    if(num1 != 0){
+    if(num1 != 0 && op === 1){
+        console.log("entra 1");
         var i = 0;
         var temp = "";
         for(i;i<text.textContent.length;i++){
@@ -249,144 +394,10 @@ function Add(){
         num1 = num1 + parseFloat(temp);
         text.innerHTML = num1;
         o = 1;
-
-        //Para cuando el numero es positivo, tiene coma y es mayor que 1000
-        if(text.textContent[0] != '-' && text.textContent.includes('.') && text.textContent.indexOf('.') >= 4){
-            console.log("entra1");
-            var j = text.textContent.indexOf('.');
-            if(j >= 4 && j <= 6){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j === 7){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-2,',');
-                text.textContent = text.textContent.replaceAt(j-6,',');
-            }
-        }
-
-        //Para cuando el numero es negativo, tiene coma y es mayor que 1000
-        else if(text.textContent.includes('.') && text.textContent.indexOf('.') >= 5){
-            console.log("entra2");
-            var j = text.textContent.indexOf('.');
-            if(j >= 5 && j <= 7){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j === 8){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-2,',');
-                text.textContent = text.textContent.replaceAt(j-6,',');
-            }
-        }
-
-        //Para cuando el numero es negativo y no tiene coma
-        else if(text.textContent[0] === '-' && text.textContent.includes('.') === false ){
-            console.log("entra3");
-            var j = text.textContent.length;
-            if(j >= 5 && j <= 7){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j >= 8 && j <= 9){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j - 2,',');
-                text.textContent = text.textContent.replaceAt(j - 6,',');
-            }
-        }
-
-        //Para cuando el numero no tiene coma
-        else if(text.textContent.includes('.') === false){
-            console.log("entra4");
-            var j = text.textContent.length;
-            if(j >= 4 && j <= 6){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j >= 7 && j <= 8){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j - 2,',');
-                text.textContent = text.textContent.replaceAt(j - 6,',');
-            }
-        }
+        StringTreatment();
     }
     else{
+        console.log("entra 2");
         var i = 0;
         var temp = "";
         for(i;i<text.textContent.length;i++){
@@ -400,7 +411,7 @@ function Add(){
 }
 
 function Substract(){
-    if(num1 != 0){
+    if(num1 != 0 && op === 2){
         var i = 0;
         var temp = "";
         for(i;i<text.textContent.length;i++){
@@ -411,142 +422,7 @@ function Substract(){
         num1 = num1 - parseFloat(temp);
         text.innerHTML = num1;
         o = 2;
-
-        //Para cuando el numero es positivo, tiene coma y es mayor que 1000
-        if(text.textContent[0] != '-' && text.textContent.includes('.') && text.textContent.indexOf('.') >= 4){
-            console.log("entra1");
-            var j = text.textContent.indexOf('.');
-            if(j >= 4 && j <= 6){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j === 7){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-2,',');
-                text.textContent = text.textContent.replaceAt(j-6,',');
-            }
-        }
-
-        //Para cuando el numero es negativo, tiene coma y es mayor que 1000
-        else if(text.textContent.includes('.') && text.textContent.indexOf('.') >= 5){
-            console.log("entra2");
-            var j = text.textContent.indexOf('.');
-            if(j >= 5 && j <= 7){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j === 8){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-2,',');
-                text.textContent = text.textContent.replaceAt(j-6,',');
-            }
-        }
-
-        //Para cuando el numero es negativo y no tiene coma
-        else if(text.textContent[0] === '-' && text.textContent.includes('.') === false ){
-            console.log("entra3");
-            var j = text.textContent.length;
-            if(j >= 5 && j <= 7){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j >= 8 && j <= 9){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j - 2,',');
-                text.textContent = text.textContent.replaceAt(j - 6,',');
-            }
-        }
-
-        //Para cuando el numero no tiene coma
-        else if(text.textContent.includes('.') === false){
-            console.log("entra4");
-            var j = text.textContent.length;
-            if(j >= 4 && j <= 6){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j >= 7 && j <= 8){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j - 2,',');
-                text.textContent = text.textContent.replaceAt(j - 6,',');
-            }
-        }
+        StringTreatment();
     }
     else{
         var i = 0;
@@ -562,7 +438,7 @@ function Substract(){
 }
 
 function Divide(){
-    if(num1 != 0){
+    if(num1 != 0 && op === 4){
         var i = 0;
         var temp = "";
         for(i;i<text.textContent.length;i++){
@@ -580,142 +456,7 @@ function Divide(){
             setTimeout(Delay,2000,"Javascript");
             return;
         }
-
-        //Para cuando el numero es positivo, tiene coma y es mayor que 1000
-        if(text.textContent[0] != '-' && text.textContent.includes('.') && text.textContent.indexOf('.') >= 4){
-            console.log("entra1");
-            var j = text.textContent.indexOf('.');
-            if(j >= 4 && j <= 6){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j === 7){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-2,',');
-                text.textContent = text.textContent.replaceAt(j-6,',');
-            }
-        }
-
-        //Para cuando el numero es negativo, tiene coma y es mayor que 1000
-        else if(text.textContent.includes('.') && text.textContent.indexOf('.') >= 5){
-            console.log("entra2");
-            var j = text.textContent.indexOf('.');
-            if(j >= 5 && j <= 7){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j === 8){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-2,',');
-                text.textContent = text.textContent.replaceAt(j-6,',');
-            }
-        }
-
-        //Para cuando el numero es negativo y no tiene coma
-        else if(text.textContent[0] === '-' && text.textContent.includes('.') === false ){
-            console.log("entra3");
-            var j = text.textContent.length;
-            if(j >= 5 && j <= 7){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j >= 8 && j <= 9){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j - 2,',');
-                text.textContent = text.textContent.replaceAt(j - 6,',');
-            }
-        }
-
-        //Para cuando el numero no tiene coma
-        else if(text.textContent.includes('.') === false){
-            console.log("entra4");
-            var j = text.textContent.length;
-            if(j >= 4 && j <= 6){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j >= 7 && j <= 8){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j - 2,',');
-                text.textContent = text.textContent.replaceAt(j - 6,',');
-            }
-        }
+        StringTreatment();
     }
     else{
         var i = 0;
@@ -731,7 +472,7 @@ function Divide(){
 }
 
 function Multiply(){
-    if(num1 != 0){
+    if(num1 != 0 && op === 3){
         var i = 0;
         var temp = "";
         for(i;i<text.textContent.length;i++){
@@ -742,142 +483,7 @@ function Multiply(){
         num1 = num1 * parseFloat(temp);
         text.innerHTML = num1;
         o = 3;
-
-        //Para cuando el numero es positivo, tiene coma y es mayor que 1000
-        if(text.textContent[0] != '-' && text.textContent.includes('.') && text.textContent.indexOf('.') >= 4){
-            console.log("entra1");
-            var j = text.textContent.indexOf('.');
-            if(j >= 4 && j <= 6){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j === 7){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-2,',');
-                text.textContent = text.textContent.replaceAt(j-6,',');
-            }
-        }
-
-        //Para cuando el numero es negativo, tiene coma y es mayor que 1000
-        else if(text.textContent.includes('.') && text.textContent.indexOf('.') >= 5){
-            console.log("entra2");
-            var j = text.textContent.indexOf('.');
-            if(j >= 5 && j <= 7){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j === 8){
-                var i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-2,',');
-                text.textContent = text.textContent.replaceAt(j-6,',');
-            }
-        }
-
-        //Para cuando el numero es negativo y no tiene coma
-        else if(text.textContent[0] === '-' && text.textContent.includes('.') === false ){
-            console.log("entra3");
-            var j = text.textContent.length;
-            if(j >= 5 && j <= 7){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j >= 8 && j <= 9){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j - 2,',');
-                text.textContent = text.textContent.replaceAt(j - 6,',');
-            }
-        }
-
-        //Para cuando el numero no tiene coma
-        else if(text.textContent.includes('.') === false){
-            console.log("entra4");
-            var j = text.textContent.length;
-            if(j >= 4 && j <= 6){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j-3,',');
-            }
-            else if(j >= 7 && j <= 8){
-                var i = j;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-3;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                i = text.textContent.length;
-                text.innerHTML = text.innerHTML + 0;
-                for(i;i > j-6;i--){
-                    var temp2 = text.textContent[i];
-                    text.textContent = text.textContent.replaceAt(i,text.textContent[i-1]);
-                    text.textContent = text.textContent.replaceAt(i-1,temp2);
-                }
-                text.textContent = text.textContent.replaceAt(j - 2,',');
-                text.textContent = text.textContent.replaceAt(j - 6,',');
-            }
-        }
+        StringTreatment();
     }
     else{
         var i = 0;
@@ -892,6 +498,76 @@ function Multiply(){
     }
 }
 
+function Equal(){
+    if(op === 1){
+        var i = 0;
+        var temp = "";
+        for(i;i<text.textContent.length;i++){
+            if(text.textContent[i] != ','){
+                temp = temp + text.textContent[i];
+            }
+        }
+        result = num1 + parseFloat(temp);
+        text.innerHTML = result;
+        StringTreatment();
+        op = 0;
+        o = 0;
+    }
+    else if(op === 2){
+        var i = 0;
+        var temp = "";
+        for(i;i<text.textContent.length;i++){
+            if(text.textContent[i] != ','){
+                temp = temp + text.textContent[i];
+            }
+        }
+        result = num1 - parseFloat(temp);
+        text.innerHTML = result;
+        StringTreatment();
+        op = 0;
+        o = 0;
+    }
+    else if(op === 3){
+        var i = 0;
+        var temp = "";
+        for(i;i<text.textContent.length;i++){
+            if(text.textContent[i] != ','){
+                temp = temp + text.textContent[i];
+            }
+        }
+        result = num1 * parseFloat(temp);
+        text.innerHTML = result;
+        StringTreatment();
+        op = 0;
+        o = 0;
+    }
+    else{
+        var i = 0;
+        var temp = "";
+        for(i;i<text.textContent.length;i++){
+            if(text.textContent[i] != ','){
+                temp = temp + text.textContent[i];
+            }
+        }
+        if(parseFloat(temp) != 0){
+        result = num1 / parseFloat(temp);
+        text.innerHTML = result;
+        StringTreatment();
+        op = 0;
+        }
+        else{
+            text.innerHTML = "INVALID CASE!";
+            setTimeout(Delay,2000,"Javascript");
+            num1 = 0;
+            op = 0;
+            o = 0;
+            return;
+        }
+    }
+}
+
+
+//Eventos
 onkeydown = (event)=>{
     var o=event.keyCode;
     switch (o) {
@@ -988,6 +664,12 @@ onkeydown = (event)=>{
         case 106:
             Multiply();
             break;
+        case 13:
+            Equal();
+            break;
+        case 187:
+            Equal();
+            break;
         default:
             break;
     }
@@ -1016,11 +698,14 @@ op_containers.forEach(function(element){
                 Substract();
                 return;
             }
-            if(element.innerText === 'X'){
+            if(element.innerText === 'x'){
                 Multiply();
                 return;
             }
-
+            if(element.innerText === '='){
+                Equal();
+                return;
+            }
         });
     }
 });
